@@ -1,0 +1,17 @@
+{
+  "saveAndRun": {
+    "commands": [
+      {
+        "cmd": "./build.sh test"
+      }
+    ]
+  },
+  "cSpell.words": [
+    "elradfmw",
+    "ganosh",
+    "KHTML",
+    "kosen",
+    "pasv",
+    "pyftpdlib"
+  ]
+}

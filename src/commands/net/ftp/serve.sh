@@ -1,4 +1,4 @@
-@l _ net:ftp_serve net_ftp_serve Launch FTP Server
+@l _ net:ftp:serve net_ftp_serve Launch FTP Server
 function net_ftp_serve {
   python3 - << EOF
 from pyftpdlib.authorizers import DummyAuthorizer

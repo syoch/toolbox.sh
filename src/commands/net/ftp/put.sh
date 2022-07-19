@@ -1,4 +1,4 @@
-@l _ net:ftp_put net_ftp_put Upload a file to FTP Server
+@l _ net:ftp:put net_ftp_put Upload a file to FTP Server
 function net_ftp_put {
   local path=$1; shift
   local file=$1; shift

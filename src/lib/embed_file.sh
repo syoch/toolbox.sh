@@ -1,11 +1,12 @@
 embed_file_line=`awk '/^__EMBED_FILE__/ {print NR+1}' $0`
 
-function embed_file {
-  tail -n +$embed_file_line $0 | base64 -d
-}
+embed_tar=`mktemp`
+trap "rm -f $embed_tar" EXIT
+
+tail -n +$embed_file_line $0 | base64 -d > $embed_tar
 
 function tar_commands {
-  embed_file | tar ztf - | grep -r "^bin/." - | sed "s/^bin\///"
+  tar ztf $embed_tar | grep -r "^bin/." - | sed "s/^bin\///"
 }
 
 function tar_execute {
@@ -14,7 +15,7 @@ function tar_execute {
 
   trap "rm $tmpfile" EXIT
 
-  embed_file | tar zxf - bin/$name -O > $tmpfile
+  tar zxf $embed_tar bin/$name -O > $tmpfile
   chmod +x $tmpfile
   $tmpfile $*
 }

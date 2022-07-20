@@ -6,7 +6,11 @@
 
 function main {
   local subcommand=$1
-  shift
+  if [ -z "$subcommand" ]; then
+    subcommand="help"
+  else
+    shift
+  fi
 
 
   if [ -z "$subcommand" ]; then

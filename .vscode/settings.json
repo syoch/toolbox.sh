@@ -3,7 +3,7 @@
     "commands": [
       {
         // "cmd": "./build.sh test"
-        "cmd": "make"
+        "cmd": "make test"
       }
     ]
   },

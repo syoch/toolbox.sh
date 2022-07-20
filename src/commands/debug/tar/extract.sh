@@ -2,8 +2,8 @@
 function debug_tar_extract {
   local readonly file=$1
   if [[ -z $file ]]; then
-    embed_file | tar zxf -
+    tar zxf $embed_tar
   else
-    embed_file | tar zxf - $file
+    tar zxf $embed_tar $file
   fi
 }

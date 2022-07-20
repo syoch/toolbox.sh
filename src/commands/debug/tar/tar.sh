@@ -1,5 +1,8 @@
 #include "extract.sh"
 #include "ls.sh"
 
-@l _ debug:tar embed_file Write tar to stdout
+@l _ debug:tar debug_tar Write tar to stdout
+function debug_tar {
+  cat $embed_tar
+}
 

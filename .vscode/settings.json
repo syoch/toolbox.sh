@@ -2,7 +2,8 @@
   "saveAndRun": {
     "commands": [
       {
-        "cmd": "./build.sh test"
+        // "cmd": "./build.sh test"
+        "cmd": "make"
       }
     ]
   },

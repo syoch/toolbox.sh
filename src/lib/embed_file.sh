@@ -5,6 +5,9 @@ trap "rm -f $embed_tar" EXIT
 
 tail -n +$embed_file_line $0 | base64 -d > $embed_tar
 
+. <(tar zxf $embed_tar environ -O)
+
+
 function tar_commands {
   tar ztf $embed_tar | grep -r "^bin/." - | sed "s/^bin\///"
 }

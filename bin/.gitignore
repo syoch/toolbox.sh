@@ -1,2 +1,4 @@
 bin/*
+fs/*
+lib/*
 environ

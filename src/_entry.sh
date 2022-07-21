@@ -1,8 +1,8 @@
-#include "_config.sh"
 
 #include "lib/lib.sh"
-#include "loaders/loaders.sh"
 #include "commands/commands.sh"
+
+#include "_config.sh"
 
 function main {
   local subcommand=$1

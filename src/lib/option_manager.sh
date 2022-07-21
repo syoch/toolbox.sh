@@ -1,5 +1,28 @@
+declare -A option_types
+declare -A option_names
+declare -A option_patterns
+declare -A option_descriptions
+declare -A option_defaults
 declare -A options
 declare -A args
+
+function @c {
+  local type=$1
+  local name=$2
+  local pattern=$3
+  local description=$4
+  local default=$5
+
+  option_types["$name"]="$type"
+  option_names["$name"]="$name"
+  option_patterns["$name"]="$pattern"
+  option_descriptions["$name"]="$description"
+  option_defaults["$name"]="$default"
+
+  options["$name"]="$default"
+}
+
+
 
 function parse_args {
   while (( $# > 0 )); do

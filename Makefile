@@ -5,9 +5,11 @@ build: build/toolbox.sh
 
 .PHONY: test
 test: build
+	@echo "[*] Executing toolbox with argument: $(ARGS)"
 	@./build/toolbox.sh $(ARGS)
 
 build/toolbox.sh: build/toolbox.prog.sh build/bin.tar
+	@echo "[+] Making toolbox"
 	@echo "#!/bin/bash" > $@
 	@echo "set -e" >> $@
 	@cat build/toolbox.prog.sh >> $@
@@ -17,6 +19,7 @@ build/toolbox.sh: build/toolbox.prog.sh build/bin.tar
 	@chmod +x $@
 
 build/toolbox.prog.sh: $(call rwildcard,src,*)
+	@echo "[+] Making toolbox.sh"
 	@cpp src/_entry.sh > $@
 
 build/bin.tar: $(wildcard bin/*)

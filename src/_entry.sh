@@ -1,11 +1,15 @@
 
 #include "lib/lib.sh"
+#include "_config.sh"
 #include "commands/commands.sh"
 
-#include "_config.sh"
 
 function main {
-  local subcommand=$1
+  parse_args $*
+  tar_init $0
+  load_tar_commands
+
+  local subcommand=${remaining_args[0]}
   if [ -z "$subcommand" ]; then
     subcommand="help"
   else

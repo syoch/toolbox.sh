@@ -48,8 +48,9 @@ function parse_args {
       echo "Option name: $option_name"
       exit 1
     fi
-
   done
+
+  remaining_args=("${args[@]}")
 }
 
 function debug_config {
@@ -58,5 +59,4 @@ function debug_config {
     logging info "$key: ${options[$key]}"
   done
   logging_group_end
-
 }

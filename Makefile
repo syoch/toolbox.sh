@@ -1,12 +1,12 @@
 rwildcard=$(foreach d,$(wildcard $(1:=/*)),$(call rwildcard,$d,$2) $(filter $(subst *,%,$2),$d))
 
-TARGET=build/toolbox.ex.sh
+TARGET=build/toolbox.sh
 
 .PHONY: build
-build: build/toolbox.ex.sh
+build: $(TARGET)
 
 .PHONY: test
-test: build
+test: build $(TARGET)
 	@echo "[*] Executing toolbox with argument: $(ARGS)"
 	@./$(TARGET) -t build/bin.tar $(ARGS)
 
@@ -18,7 +18,7 @@ build/toolbox.ex.sh: build/toolbox.prog.sh
 	@chmod +x $@
 
 build/toolbox.sh: build/toolbox.prog.sh build/bin.tar
-	@echo "[+] Making toolbox.sh"
+	@echo "[+] Making $@"
 	@echo "#!/bin/bash" > $@
 	@echo "set -e" >> $@
 	@cat build/toolbox.prog.sh >> $@

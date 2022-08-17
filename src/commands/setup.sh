@@ -3,10 +3,11 @@ function _setup {
 yay -Syu
 yay --noconfirm -S \
        lsp-plugins lv2-plugins distrho-ports vlc-plugin-fluidsynth soundfont-fluid jamesdsp easyeffects audacity \
-       ghq strace binwalk imhex imhex-patterns-git docker arm-linux-gnueabi-gcc cargo-profiler valgrind retdec-bin upx android-sdk android-tools \
-       syncthing google-chrome archlinux-xdg-menu tigervnc \
+       ghq strace binwalk imhex imhex-patterns-git docker arm-linux-gnueabi-gcc cargo-profiler valgrind retdec-bin upx android-sdk android-tools cling \
+       syncthing google-chrome archlinux-xdg-menu tigervnc winetricks q4wine \
        libcamera obs sndio libva-intel-driver libva-mesa-driver \
-       minecraft-launcher flite q4wine gimp blockbench-bin
+       minecraft-launcher flite q4wine gimp blockbench-bin carla \
+       lib32-pipewire lib32-libpulse
 
 python3 -m pip install spyder chardet discord
 
@@ -36,4 +37,12 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 echo "[*] Enabling Docker service"
 sudo systemctl enable docker
+
+echo "[+] Installing PIP of python2"
+curl -s https://bootstrap.pypa.io/pip/2.7/get-pip.py | python2
+
+echo "[+] Updaing pip"
+python2 -m pip install --upgrade pip
+
+
 }

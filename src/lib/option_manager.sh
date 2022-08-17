@@ -25,6 +25,7 @@ function @c {
 
 
 function parse_args {
+  declare -A args
   while (( $# > 0 )); do
     option_name=""
     for opt_name in "${option_names[@]}"; do
@@ -38,7 +39,7 @@ function parse_args {
     done
 
     if [[ -z $option_name ]]; then
-      args+=("$1")
+      args+="$1"
       shift
     elif [[ ${option_types[$option_name]} == pair ]]; then
       options[$option_name]=$2
@@ -49,7 +50,6 @@ function parse_args {
       exit 1
     fi
   done
-
   remaining_args=("${args[@]}")
 }
 

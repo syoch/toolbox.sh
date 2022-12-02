@@ -2,8 +2,7 @@
   "saveAndRun": {
     "commands": [
       {
-        // "cmd": "./build.sh test"
-        "cmd": "make test"
+        "cmd": "make test ARGS=setup:firacode"
       }
     ]
   },

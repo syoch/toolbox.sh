@@ -1,4 +1,3 @@
-
 #include "lib/lib.sh"
 #include "_config.sh"
 #include "commands/commands.sh"
@@ -15,7 +14,6 @@ function main {
   else
     shift
   fi
-
 
   if [ -z "$subcommand" ]; then
     subcommand="help"

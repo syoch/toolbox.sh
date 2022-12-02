@@ -1,8 +1,6 @@
-
-#include "kosen/kosen.sh"
-#include "debug/debug.sh"
-#include "net/net.sh"
+#include "ftp.sh"
 #include "help.sh"
+#include "kosen.sh"
+#include "net.sh"
+#include "setup.sh"
 #include "tar.sh"
-// #include "setup.sh"
-

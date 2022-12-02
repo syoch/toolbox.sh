@@ -1,7 +1,6 @@
 logging_indent=0
 
 function logging {
-
   case $1 in
     verbose) echo -n "[*] ";;
     info) echo -n "[ ] ";;

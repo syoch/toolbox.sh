@@ -22,8 +22,6 @@ function @c {
   options["$name"]="$default"
 }
 
-
-
 function parse_args {
   declare -A args
   while (( $# > 0 )); do
@@ -51,12 +49,4 @@ function parse_args {
     fi
   done
   remaining_args=("${args[@]}")
-}
-
-function debug_config {
-  logging_group verbose "Configurations"
-  for key in "${!options[@]}"; do
-    logging info "$key: ${options[$key]}"
-  done
-  logging_group_end
 }
